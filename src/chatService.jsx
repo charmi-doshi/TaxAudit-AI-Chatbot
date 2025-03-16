@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getTaxResponse = async (userPrompt) => {
   try {
-    const response = await axios.post("http://localhost:5000/api/chat", {
+    const response = await axios.post("http://localhost:5000/api/tax", {
       prompt: userPrompt,
     });
 

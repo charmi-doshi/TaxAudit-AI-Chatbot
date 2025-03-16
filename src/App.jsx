@@ -1,6 +1,7 @@
 import { ChartArea, MessageCircle } from "lucide-react";
 import React, { useState } from "react";
 import { getTaxResponse } from "./chatService";
+import { AiOutlineOpenAI } from "react-icons/ai";
 
 const App = () => {
   const [prompt, setPrompt] = useState("");
@@ -40,12 +41,13 @@ const App = () => {
           ></textarea>
         </div>
 
-        <div class="flex justify-center gap-4 p-4">
+        <div class="flex justify-start gap-4 p-4">
           <button
             class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
             onClick={handleSend}
           >
-            Send
+           <div className="flex items-center gap-1 justify-end"> <AiOutlineOpenAI />  Send </div>
+            
           </button>
           <button
             class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
