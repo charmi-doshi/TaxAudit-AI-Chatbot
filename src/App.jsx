@@ -15,39 +15,55 @@ const App = () => {
   };
 
   return (
+    <div class="h-screen flex flex-col">
+      {/* <!-- Header Section --> */}
+      <div class="bg-blue-900 text-white p-4">
+        <h1 class="text-xl font-bold">Deloitte Auditor Enterprise Chat UI</h1>
+      </div>
 
-<div class="h-screen flex flex-col">
-  {/* <!-- Header Section --> */}
-  <div class="bg-blue-900 text-white p-4">
-    <h1 class="text-xl font-bold">Deloitte Auditor Enterprise Chat UI</h1>
-  </div>
+      {/* <!-- Main Content Section --> */}
+      <div class="flex-grow flex flex-col bg-gray-100">
+        {/* <!-- Tax Prompt Input --> */}
+        <div class="p-4">
+          <label
+            for="tax-prompt"
+            class="block text-lg font-medium text-gray-700"
+          >
+            Tax Prompt
+          </label>
+          <textarea
+            id="tax-prompt"
+            rows="4"
+            class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+          ></textarea>
+        </div>
 
-  {/* <!-- Main Content Section --> */}
-  <div class="flex-grow flex flex-col bg-gray-100">
-    {/* <!-- Tax Prompt Input --> */}
-    <div class="p-4">
-      <label for="tax-prompt" class="block text-lg font-medium text-gray-700">Tax Prompt</label>
-      <textarea id="tax-prompt" rows="4" class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={prompt}
-         onChange={(e) => setPrompt(e.target.value)} ></textarea>
-    </div>
+        <div class="flex justify-center gap-4 p-4">
+          <button
+            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            onClick={handleSend}
+          >
+            Send
+          </button>
+          <button
+            class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
+            onClick={() => setPrompt("")}
+          >
+            Cancel
+          </button>
+        </div>
 
-    <div class="flex justify-center gap-4 p-4">
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700" onClick={handleSend}>Send</button>
-      <button class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"  onClick={() => setPrompt("")}>Cancel</button>
-    </div>
-
-    {/* <!-- Response Section --> */}
-    <div class="flex-grow bg-white p-4 border-t">
-      <h2 class="text-lg font-semibold text-gray-800">Response:</h2>
-      <div class="mt-2 p-4 bg-gray-50 border rounded-md text-gray-700">
-        {response ? response : "No response yet."}
-      
+        {/* <!-- Response Section --> */}
+        <div class="flex-grow bg-white p-4 border-t">
+          <h2 class="text-lg font-semibold text-gray-800">Response:</h2>
+          <div class="mt-2 p-4 bg-gray-50 border rounded-md text-gray-700">
+            {response ? response : "No response yet."}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-
   );
 };
 
